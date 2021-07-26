@@ -1,0 +1,6 @@
+<h1>Editar <%= Message.model_name.human %></h1>
+
+<%= render 'form', message: @message %>
+
+<%= render_button 'show', @message %>
+<%= render_button 'back', messages_path %>

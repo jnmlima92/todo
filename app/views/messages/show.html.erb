@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= Message.human_attribute_name(:description) %>:</strong>
+  <%= @message.description %>
+</p>
+
+<p>
+  <strong><%= Message.human_attribute_name(:hexadecimal_color) %>:</strong>
+  <%= @message.hexadecimal_color %>
+</p>
+
+<p>
+  <strong><%= Message.human_attribute_name(:message_type) %>:</strong>
+  <%= @message.message_type %>
+</p>
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>

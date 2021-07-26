@@ -1,0 +1,32 @@
+<%= form_with(model: message, local: true) do |form| %>
+  <% if message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t('errors.messages.not_saved', count: message.errors.count, resource: Message.model_name.human)%></h2>
+
+      <ul>
+        <% message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hexadecimal_color %>
+    <%= form.text_field :hexadecimal_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :message_type %>
+    <%= form.select :message_type, translated_enum_options('message', Message.message_types.keys) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

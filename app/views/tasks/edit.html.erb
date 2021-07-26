@@ -1,6 +1,7 @@
-<h1>Editing Task</h1>
+<h1>Editar <%= Task.model_name.human %></h1>
+
 
 <%= render 'form', task: @task %>
 
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+<%= render_button 'show', @task %> |
+<%= render_button 'back', tasks_path %>
