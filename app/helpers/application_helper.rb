@@ -6,6 +6,13 @@ module ApplicationHelper
   end
 
   def render_button(label, path)
-    link_to t("helpers.button.#{label}"), path
+    style = case label
+    when *['new', 'create', 'edit']
+      'btn btn-primary text-white btn-sm'
+    else
+      'btn btn-secondary text-white btn-sm'
+    end
+    
+    link_to t("helpers.button.#{label}"), path, class: style, type: 'button'
   end
 end

@@ -1,0 +1,13 @@
+<div class="row">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" style='margin-left: 12em;'>
+      <%= link_to 'Home', tasks_path(), class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t(Task.model_name.human), tasks_path(), class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t(Message.model_name.human), messages_path(), class: 'nav-link' %>
+    </li>
+  </ul>
+</div>

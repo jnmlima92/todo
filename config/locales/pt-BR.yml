@@ -10,6 +10,7 @@ pt-BR:
     attributes:
       task:
         description: Descrição
+        created_at: 'Data de criação'
         status: Status
         backlog: 'A fazer'
         in_progress: 'Em progresso'
@@ -168,6 +169,8 @@ pt-BR:
         one: 'Não foi possível gravar %{model}: 1 erro'
         other: 'Não foi possível gravar %{model}: %{count} erros'
   helpers:
+    view:
+      actions: Ações
     select:
       prompt: Por favor selecione
     submit:
@@ -179,7 +182,7 @@ pt-BR:
       edit: Editar
       destroy: Excluir
       back: Voltar
-      new: Criar
+      new: Novo
   number:
     currency:
       format:

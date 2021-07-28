@@ -11,17 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+  <div class="mb-3">
+    <div class="field">
+      <%= form.label :description, class: "form-label" %>
+      <%= form.text_field :description, class: "form-control"  %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, translated_enum_options('task', Task.status.keys) %>
+  <div class="mb-3">
+    <div class="field">
+      <%= form.label :status, class: "form-label" %>
+      <%= form.select :status, translated_enum_options('task', Task.status.keys), {}, { class: "form-select" } %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row actions">
+    <div class="container">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

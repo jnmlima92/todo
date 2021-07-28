@@ -20,7 +20,10 @@
         <td><%= message.human_message_type %></td>
         <td><%= render_button 'show', message %></td>
         <td><%= render_button 'edit', edit_message_path(message) %></td>
-        <td><%= link_to t('helpers.button.destroy'), message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= button_to t('helpers.button.destroy'), destroy_message_path(message),
+            :method => 'delete', class: 'btn btn-danger btn-sm' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
