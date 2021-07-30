@@ -7,13 +7,20 @@ pt-BR:
       message:
         one: Mensagem
         other: Mensagens
+      event_track:
+        one: Evento
+        other: Eventos
     attributes:
+      event_track:
+        event_type: Tipo de Evento
+        created_at: Criado em
+        properties: Propriedades
       task:
         description: Descrição
-        created_at: 'Data de criação'
+        created_at: Data de criação
         status: Status
-        backlog: 'A fazer'
-        in_progress: 'Em progresso'
+        backlog: A fazer
+        in_progress: Em progresso
         done: Pronto
         cancelled: Cancelado
       message:
@@ -183,6 +190,8 @@ pt-BR:
       destroy: Excluir
       back: Voltar
       new: Novo
+      mark_as_done: Concluir
+      mark_as_undone: Desmarcar concluído
   number:
     currency:
       format:
@@ -253,3 +262,6 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
+  event_types:
+    shame: Vergonhoso
+    congratulations: Parabéns

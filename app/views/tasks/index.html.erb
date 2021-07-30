@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <% if notice.present? %>
-      <p id="notice"><%= notice %></p>
+    <% if @notice.present? %>
+      <p id="notice" style="color: <%= @notice_color %>" ><%= @notice %></p>
     <% end %>
 
     <h1>Lista de <%= Task.model_name.human %></h1>
@@ -21,16 +21,20 @@
       <thead>
           
       <tbody>
-        <% @backlog_tasks.each do |task| %>
+        <% @tasks.each do |task| %>
           <tr>
-            <th scope="row"><%= task.id %></th>
+            <td>
+              <%= link_to(tasks_path) do %>
+                Ver Tarefa #<%= task.id %>
+              <% end %>
+            </td>
             <td><%= task.description %></td>
             <td><%= task.created_at.strftime('%d %b %Y') %></td>
             <td><%= Task.human_attribute_name task.status %></td>
             <td colspan='2'>
               <div class="d-grid gap-2 d-md-block">
-                <%= render_button 'show', task %>
                 <%= render_button 'edit', edit_task_path(task) %>
+                <%= render_button done_button(task.status), done_task_path(task) %>
                 <%= button_to t('helpers.button.destroy'), destroy_task_path(task),
                   :method => 'delete', class: 'btn btn-danger btn-sm' %>
               </div>

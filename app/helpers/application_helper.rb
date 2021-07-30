@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def translated_enum_options(model_name, enum_array)
-    enum_array.map do |key|
+  def translated_enum_options(model_name, enum_array, except=nil)
+    enum_array.excluding(except).map do |key|
       [I18n.t("activerecord.attributes.#{model_name}.#{key}"), key]
     end
   end

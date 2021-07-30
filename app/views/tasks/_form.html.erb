@@ -21,7 +21,7 @@
   <div class="mb-3">
     <div class="field">
       <%= form.label :status, class: "form-label" %>
-      <%= form.select :status, translated_enum_options('task', Task.status.keys), {}, { class: "form-select" } %>
+      <%= form.select :status, translated_enum_options('task', Task.status.keys, 'done'), {}, { class: "form-select" } %>
     </div>
   </div>
 

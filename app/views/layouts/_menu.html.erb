@@ -9,5 +9,8 @@
     <li class="nav-item">
       <%= link_to t(Message.model_name.human), messages_path(), class: 'nav-link' %>
     </li>
+    <li class="nav-item">
+      <%= link_to t(EventTrack.model_name.human.pluralize), event_tracks_path(), class: 'nav-link' %>
+    </li>
   </ul>
 </div>

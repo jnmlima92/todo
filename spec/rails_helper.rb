@@ -47,6 +47,7 @@ RSpec.configure do |config|
   config.before(:each, js: true) { DatabaseCleaner.strategy = :truncation }	
   config.before(:each) { DatabaseCleaner.start }
   config.after(:each) { DatabaseCleaner.clean }
+  config.before(:all) { Rails.application.load_seed } # loading seeds
 
   # Just adding FactoryBot methods
   config.include FactoryBot::Syntax::Methods

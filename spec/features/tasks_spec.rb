@@ -37,7 +37,7 @@ RSpec.feature 'Tasks', type: :feature do
 
       within('form') do
         fill_in 'Descrição', with: ''
-        find(:css, '#task_status').find(:option, 'A fazer').select_option
+        find(:css, '#task_status').find(:option, 'Cancelado').select_option
       end
 
       click_button 'Atualizar'
@@ -70,7 +70,37 @@ RSpec.feature 'Tasks', type: :feature do
 
       click_button 'Excluir'
       
-      expect { Task.count }.to change { Task.count }.by(0)
+      expect(page).to_not have_content("John to change name to Paul")
+    end
+  end
+
+  context 'mark as' do
+    context 'done' do
+      scenario 'should be succesful' do
+        visit tasks_path(task)
+        expect(page).to have_content("Concluir")
+        expect(page).to_not have_content("Desmarcar concluído")
+        
+        click_link 'Concluir'
+        
+        expect(page).to_not have_content("Concluir")
+        expect(page).to have_content("Desmarcar concluído")
+      end
+    end
+
+    context 'undone' do
+      before do
+        Task.create(description: 'Testing', status: :done)
+      end
+
+      scenario 'should be succesful' do
+        visit tasks_path(task)
+        expect(page).to have_content("Desmarcar concluído")
+        
+        click_link 'Desmarcar concluído'
+        
+        expect(page).to_not have_content("Desmarcar concluído")
+      end
     end
   end
 end

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de <%= EventTrack.model_name.human %></h1>
+
+<ul class="list-group col-6">
+  <% @event_tracks.each do |event_track| %>
+    <div class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= t("event_types.#{event_track.event_type}") %></h5>
+        <small>
+          <%= EventTrack.human_attribute_name(:created_at) %>
+          <%= event_track.created_at.strftime('%d %b %Y - %H:%m') %>
+        </small>
+      </div>
+
+      <p class="mb-1">
+          <%= EventTrack.human_attribute_name(:properties) %>
+        <%= event_track.properties %>
+      </p>
+      <small>
+        <%= EventTrack.human_attribute_name(:event_type) %>:
+        <%= t("event_types.#{event_track.event_type}") %>
+      </small>
+    </div>
+  <% end %>
+</ul>
+
+<br>

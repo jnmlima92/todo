@@ -1,5 +1,5 @@
 module TasksHelper
-  # def thead(status)
-  #   content_tag :th, Task.human_attribute_name(status), scope: "col"
-  # end
+  def done_button(status)
+    status == 'done' ? 'mark_as_undone' : 'mark_as_done'
+  end
 end

@@ -67,13 +67,16 @@ RSpec.feature 'Messages', type: :feature do
   end
 
   context 'destroy one message' do
+    let(:messages_count) { Message.count }
+    
     scenario 'should be succesful' do
       visit messages_path(message)
       expect(page).to have_content("John to change name to Paul")
+      expect(page).to have_button('Excluir', count: messages_count)
 
-      click_button 'Excluir'
+      click_button 'Excluir', match: :first
       
-      expect { Message.count }.to change { Message.count }.by(0)
+      expect(page).to have_content('Ver', count: messages_count - 1)
     end
   end
 end
